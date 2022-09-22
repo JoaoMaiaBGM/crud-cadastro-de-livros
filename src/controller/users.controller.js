@@ -1,6 +1,6 @@
 import createUserService from "../services/users/createUsers.services";
 import listUsersService from "../services/users/listUsers.services";
-import loginUserService from "../services/users/loginUser.service";
+import updateUserService from "../services/users/updateUser.service";
 
 const createUserController = async (req, res) => {
   const { name, email, password } = req.body;
@@ -16,12 +16,13 @@ const listUsersController = (req, res) => {
   return res.status(200).json(users);
 };
 
-const loginUserController = (req, res) => {
-  const { email, password } = req.body;
+const updateUserController = (req, res) => {
+  const user = req.body;
+  const id = req.params.id;
 
-  const login = loginUserService(email, password);
+  const updateUser = updateUserService(id, user);
 
-  return res.status(200).json(login);
+  return res.status(200).json(updateUser);
 };
 
-export { createUserController, listUsersController, loginUserController };
+export { createUserController, listUsersController, updateUserController };
