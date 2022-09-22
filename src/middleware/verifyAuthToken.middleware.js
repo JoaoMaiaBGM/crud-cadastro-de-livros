@@ -15,6 +15,10 @@ const verifyAuthTokenMiddleware = (req, res, next) => {
     if (error) {
       return res.status(401).json({ message: "Invalid Token" });
     }
+
+    req.user = {
+      id: decoded.sub, //decodificando a id usuário
+    };
   });
   next();
 };

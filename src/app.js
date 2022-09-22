@@ -1,4 +1,5 @@
 import express from "express";
+import bookRouter from "./routes/books.routes";
 import loginRouter from "./routes/session.routes";
 import userRouter from "./routes/users.routes";
 
@@ -9,7 +10,7 @@ const port = 3000;
 
 app.use("/users", userRouter);
 app.use("/login", loginRouter);
-app.use("/books", userRouter);
+app.use("/books", bookRouter);
 
 app.listen(port, () => {
   console.log(`Server is running in port ${port}`);
