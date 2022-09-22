@@ -1,4 +1,5 @@
 import createUserService from "../services/users/createUsers.services";
+import deleteUserService from "../services/users/deleteUser.service";
 import listUsersService from "../services/users/listUsers.services";
 import updateUserService from "../services/users/updateUser.service";
 
@@ -25,4 +26,17 @@ const updateUserController = (req, res) => {
   return res.status(200).json(updateUser);
 };
 
-export { createUserController, listUsersController, updateUserController };
+const deleteUserController = (req, res) => {
+  const id = req.params.id;
+
+  const deleteUser = deleteUserService(id);
+
+  return res.status(200).json({ message: "User deleted" });
+};
+
+export {
+  createUserController,
+  listUsersController,
+  updateUserController,
+  deleteUserController,
+};
