@@ -14,3 +14,5 @@ app.use("/books", userRouter);
 app.listen(port, () => {
   console.log(`Server is running in port ${port}`);
 });
+
+export default app;
